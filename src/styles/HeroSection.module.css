@@ -1,0 +1,57 @@
+.BannerImage {
+
+    background-image:url('/img/hero-section.webp');
+    background-size:cover;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: top;
+    background-color: #000;
+    padding-bottom: 50px;
+    color: #fff;
+}
+.has-background-dim{
+    background-color: #000a12;
+    bottom: 0;
+    left: 0;
+    opacity: .5;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+.container{
+    z-index: 2;
+    margin-top: 110px;
+}
+.container h1{
+        font-weight: 600;
+    line-height: 1.25;
+    font-size: clamp(2rem, 2rem + ((1vw - 0.2rem) * 1.25), 3rem);
+}
+.container h1:nth-child(2){
+    color: var(--primary);
+    margin: 0 0 20px;
+}
+.container p{
+    font-size: 23px;
+        font-style: normal;
+    font-weight: 400;
+        line-height: 1.5;
+            margin: 0 0 20px;
+}
+@media  screen and (max-width: 568px) {
+.container h1{ font-size: 24px;}
+.container p{font-size: 14px;}
+.container h1:nth-child(2){
+    color: var(--primary);
+    margin: 0 0 10px;
+}
+}
+
+
+@media only screen and (max-width: 320px) {
+    .BannerImage{
+        padding-bottom: 30px !important;
+    }
+}

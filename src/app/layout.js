@@ -1,15 +1,13 @@
-import localFont from "next/font/local";
+import { Poppins } from "next/font/google";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
+import Navbar from "@/Components/Layout/Navbar";
+import Footer from "@/Components/Layout/Footer";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const poppins = Poppins({
+  weight: ["100", "300", "200", "400", "500", "600", "700", "900"],
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -20,9 +18,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${poppins.className}`}>
+        <Navbar/>
         {children}
-      </body>
+        <Footer/></body>
     </html>
   );
 }

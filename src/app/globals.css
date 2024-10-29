@@ -1,12 +1,26 @@
 :root {
+  /* Theme Colors */
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #007bff; /* Bootstrap Primary color */
+  --secondary: #6c757d; /* Bootstrap Secondary color */
+
+  /* Font Sizes */
+  --font-size-small: 0.875rem; /* ~14px */
+  --font-size-base: 1rem; /* ~16px */
+  --font-size-large: 1.125rem; /* ~18px */
+
+  /* Base font size for responsive scaling */
+  font-size: 16px; /* This will be the base, which scales with the viewport */
 }
 
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --primary: #66b2ff;
+    --secondary: #a4a4a4;
   }
 }
 
@@ -14,12 +28,11 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: var(--font-size-base);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -35,8 +48,64 @@ a {
   text-decoration: none;
 }
 
+/* Responsive Font Scaling */
+@media (max-width: 768px) {
+  :root {
+    font-size: 15px; /* Smaller screens */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  :root {
+    font-size: 16px; /* Tablets and smaller laptops */
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    font-size: 18px; /* Larger desktops */
+  }
+}
+
+/* Utility Classes for Text Sizes */
+.text-small {
+  font-size: var(--font-size-small);
+}
+
+.text-large {
+  font-size: var(--font-size-large);
+}
+.btn--primary{
+  background-color: var(--primary);
+    border-radius: 99px;
+    border-width: 0;
+    color: #fff;
+    font-family: inherit;
+    font-size: clamp(14px, 0.875rem +((1vw - 3.2px)* 0.156), 16px);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: inherit;
+    padding: 11px 28px;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+}
+.btn--primary:disabled{
+  opacity: 0.5;
+}
+.btn--primary:hover {
+    background-color: #0056b3;
+}
+/* Media query for dark mode */
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
+}
+
+/* boostrap fast */
+.dropdown-toggle:after {
+
+    margin-left: .5em !important;
+    vertical-align: .2em !important;
 }
